@@ -1,4 +1,5 @@
 import { encode, omit } from './helpers'
+
 import type { RequestController } from './RequestController'
 
 export class Orders {
@@ -12,7 +13,7 @@ export class Orders {
 	/**
 	 * @see https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-order
 	 */
-	public get(orderId: $FixMe) {
+	public get(orderId: string) {
 		return this.client.get(`/orders/${encode(orderId)}`)
 	}
 	/**

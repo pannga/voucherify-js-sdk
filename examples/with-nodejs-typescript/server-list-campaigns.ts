@@ -1,5 +1,5 @@
 // require('source-map-support').install()
-const { VoucherifyServerSide } = require('@voucherify/sdk')
+import { VoucherifyClientSide } from '@voucherify/sdk'
 
 const voucherify = VoucherifyServerSide({
 	applicationId: 'c70a6f00-cf91-4756-9df5-47628850002b',
@@ -12,6 +12,7 @@ voucherify.campaigns
 		limit: 10,
 		page: 1,
 		filters: {
+			junction: 'AND',
 			'metadata.lang': {
 				conditions: {
 					$is: ['en'],
@@ -26,8 +27,3 @@ voucherify.campaigns
 	.catch(function (err) {
 		console.error(err)
 	})
-
-voucherify.loyalties
-	.listEarningRules('camp_H8aFdW5lkC38H77sCl5FxKUv')
-	.then(result => console.log(result))
-	.catch(error => console.log(error))
